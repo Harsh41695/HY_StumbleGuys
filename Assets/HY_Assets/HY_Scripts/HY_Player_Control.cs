@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -34,6 +33,9 @@ public class HY_Player_Control : MonoBehaviour
     //float lastTapTime = 0f, doubleTapThreshold = 0.3f;
     [SerializeField]
     float dashDuration = 0.5f, dashSpeed = 10f;
+    Vector3 playerScale;
+    [SerializeField]
+    float scale = 0.75f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,6 +43,9 @@ public class HY_Player_Control : MonoBehaviour
         animator = GetComponent<Animator>();
         spawnPoint = firstSp;
         transform.position = spawnPoint.position;
+        playerScale=new Vector3(scale,scale,scale);
+        transform.localScale = playerScale;
+        
     }
     // Update is called once per frame
     [System.Obsolete]
@@ -161,7 +166,7 @@ public class HY_Player_Control : MonoBehaviour
         if (collision.transform.tag == "Water")
         {
             // gameObject.SetActive(false
-            transform.localScale = Vector3.Lerp(Vector3.one,Vector3.zero,500f);
+            transform.localScale = Vector3.Lerp(transform.localScale,Vector3.zero,500f);
             Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
             StartCoroutine(SpawnWait());
            // transform.position = spawnPoint.position;
@@ -170,7 +175,7 @@ public class HY_Player_Control : MonoBehaviour
     IEnumerator SpawnWait()
     {
         yield return new WaitForSeconds(waitForSec);
-       transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, 500f);
+       transform.localScale = Vector3.Lerp(Vector3.zero, playerScale, 500f);
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.localRotation;
 

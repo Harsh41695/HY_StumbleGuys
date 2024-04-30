@@ -44,7 +44,10 @@ public class HY_NavMeshEnemy : MonoBehaviour
             enmyAnim.SetBool("Jump", false);
             enmyAnim.SetBool("Hanging", false);
         }
-        
+        if (Vector3.Distance(transform.position,target.position) <= agent.radius)
+        {
+            agent.ResetPath();
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
