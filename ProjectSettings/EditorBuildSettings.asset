@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HY_Assets/Scenes_HY/NewCharacter.unity
+    path: Assets/HY_Assets/Scenes_HY/Level_1.unity
     guid: 37a4d34cfbec9264ead4c7dfdecb0bc5
   m_configObjects: {}

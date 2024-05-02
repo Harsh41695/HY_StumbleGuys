@@ -29,19 +29,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Grass_base:
-        m_Texture: {fileID: 2800000, guid: 3a59b070a00a434499db21b1bccf4f3a, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Rock_Albedo:
-        m_Texture: {fileID: 2800000, guid: 9277a796d1e1fda4c92aaacf3eaa13d2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2ed3d41b7c655bf4daa77f71b994f6ed, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Rock_NoramlAO:
-        m_Texture: {fileID: 2800000, guid: 790af8bf8a3dfdf4aa6cfc7bb8d77ee4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 11154d936b05e66498f68fa178c5cfbb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _grass_normal:
-        m_Texture: {fileID: 2800000, guid: a0b7d9781aaf0d746bd5d6d40af68400, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
