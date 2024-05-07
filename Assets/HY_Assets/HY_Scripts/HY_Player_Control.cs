@@ -1,6 +1,6 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
 public class HY_Player_Control : MonoBehaviour
 {
@@ -12,17 +12,17 @@ public class HY_Player_Control : MonoBehaviour
     Button btn;
     Vector3 move;
     [SerializeField]
-    float moveSpeed = 10f,force= 7f, defaultSpeed = 0.97f, onSliderSpeed = 2.0f,
-        waitForSec=0.5f;//Jump Force
+    float moveSpeed = 10f, force = 7f, defaultSpeed = 0.97f, onSliderSpeed = 2.0f,
+        waitForSec = 0.5f;//Jump Force
     [SerializeField]
     Animator animator;
     [SerializeField]
     bool isGrounded, isDashing;
     [SerializeField]
     Transform cam;
-    bool jumpbtnPressed=false;
+    bool jumpbtnPressed = false;
     [SerializeField]
-    Transform spawnPoint,firstSp,secondSp,thirdSp,fourthSp;
+    Transform spawnPoint, firstSp, secondSp, thirdSp, fourthSp;
     [SerializeField]
     bool inAir;
     [SerializeField]
@@ -36,6 +36,7 @@ public class HY_Player_Control : MonoBehaviour
     Vector3 playerScale;
     [SerializeField]
     float scale = 0.75f;
+    public bool canControl = true;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,24 +44,27 @@ public class HY_Player_Control : MonoBehaviour
         animator = GetComponent<Animator>();
         spawnPoint = firstSp;
         transform.position = spawnPoint.position;
-        playerScale=new Vector3(scale,scale,scale);
+        playerScale = new Vector3(scale, scale, scale);
         transform.localScale = playerScale;
-        
+
     }
     // Update is called once per frame
     [System.Obsolete]
     void Update()
     {
         CanAniamte();
-        PlayerMovement();
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (canControl == true)
         {
-            MobileJumpBtn();
+            PlayerMovement();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                MobileJumpBtn();
+            }
         }
     }
     void HangingAnimation()
     {
-        if (!isGrounded && inAir &&!isDashing)
+        if (!isGrounded && inAir && !isDashing)
         {
             animator.SetBool("Hanging", true);
         }
@@ -72,7 +76,7 @@ public class HY_Player_Control : MonoBehaviour
                cam.transform.forward * joystick.Vertical;
         move.y = 0f;
         rb.MovePosition(transform.position + move * moveSpeed * Time.deltaTime);
-        if (move.magnitude!=0)
+        if (move.magnitude != 0)
         {
             Rotate();
         }
@@ -80,7 +84,7 @@ public class HY_Player_Control : MonoBehaviour
     }// joy stick movment.
     public void MobileJumpBtn()
     {
-        if(isGrounded && !jumpbtnPressed)
+        if (isGrounded && !jumpbtnPressed)
         {
             animator.SetBool("Jump", true);
             rb.AddForce(Vector3.up * force, ForceMode.Impulse);
@@ -88,7 +92,7 @@ public class HY_Player_Control : MonoBehaviour
             inAir = true;
             jumpbtnPressed = true;
             StartCoroutine(JumpUp());
-        }   
+        }
     }
     public IEnumerator JumpUp()
     {
@@ -116,7 +120,7 @@ public class HY_Player_Control : MonoBehaviour
     }//dash animation....//Not in use yet...............
     public void CanAniamte()
     {
-      
+
         if (move.magnitude != 0 && isGrounded)
         {
             animator.SetFloat("Run", move.magnitude);
@@ -130,30 +134,30 @@ public class HY_Player_Control : MonoBehaviour
     [System.Obsolete]
     public void Rotate()
     {
-        Quaternion rot = Quaternion.LookRotation(move,Vector3.up);
+        Quaternion rot = Quaternion.LookRotation(move, Vector3.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, rot,
             720f * Time.deltaTime);
     }
     [System.Obsolete]
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Ground"||collision.transform.tag == "LeftMover" || 
-            collision.transform.tag == "RightMover"||
-            collision.transform.tag=="Water")
+        if (collision.transform.tag == "Ground" || collision.transform.tag == "LeftMover" ||
+            collision.transform.tag == "RightMover" ||
+            collision.transform.tag == "Water")
         {
-           
+
             animator.SetBool("Hanging", false);
             isGrounded = true;
-           jumpbtnPressed = false;
+            jumpbtnPressed = false;
             inAir = false;
             moveSpeed = defaultSpeed;
             animator.SetBool("Dash", false);
-            isDashing= false;
+            isDashing = false;
         }
         if (collision.transform.tag == "Slider")
         {
             moveSpeed = onSliderSpeed;
-            isDashing=true;
+            isDashing = true;
             animator.SetBool("Jump", false);
             animator.SetBool("Dash", true);
             animator.SetTrigger("Dashing");
@@ -166,16 +170,16 @@ public class HY_Player_Control : MonoBehaviour
         if (collision.transform.tag == "Water")
         {
             // gameObject.SetActive(false
-            transform.localScale = Vector3.Lerp(transform.localScale,Vector3.zero,500f);
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 500f);
             Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
             StartCoroutine(SpawnWait());
-           // transform.position = spawnPoint.position;
+            // transform.position = spawnPoint.position;
         }
     }
     IEnumerator SpawnWait()
     {
         yield return new WaitForSeconds(waitForSec);
-       transform.localScale = Vector3.Lerp(Vector3.zero, playerScale, 500f);
+        transform.localScale = Vector3.Lerp(Vector3.zero, playerScale, 500f);
         transform.position = spawnPoint.position;
         transform.rotation = spawnPoint.localRotation;
 
@@ -197,9 +201,6 @@ public class HY_Player_Control : MonoBehaviour
                 spawnPoint = fourthSp;
                 break;
         }
-        if (other.tag == "EndPoint")
-        {
-            LevelCompletedPanel.SetActive(true);
-        }
+        
     }
 }
