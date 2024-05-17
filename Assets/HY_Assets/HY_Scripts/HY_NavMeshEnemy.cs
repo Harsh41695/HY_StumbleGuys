@@ -7,15 +7,23 @@ public class HY_NavMeshEnemy : MonoBehaviour
     Transform target, playerTrans;
     [SerializeField]
     NavMeshAgent agent;
-    
+    [SerializeField]
     public float rndSpeed = 7.0f, onLinkSpeed = 2;
     HY_Player_Control plc;
     [SerializeField]
     Animator enmyAnim;
     public bool canMove;
     public bool touchedFinishLine;
+    [SerializeField]
+    float time = 0, changeSpeedFloat = 10;
+    public bool followPath;
+    //public static bool goRagdoll = false;
+    Rigidbody rb;
     void Start()
     {
+        //goRagdoll = false;
+        rb=GetComponent<Rigidbody>();
+        followPath = true;
         agent = GetComponent<NavMeshAgent>();
         plc = GetComponent<HY_Player_Control>();
         enmyAnim = GetComponentInChildren<Animator>();
@@ -28,12 +36,23 @@ public class HY_NavMeshEnemy : MonoBehaviour
 
     void Update()
     {
-        
-        if (canMove==true)
+        time += Time.deltaTime;
+        if (canMove == true)
         {
-            agent.speed = rndSpeed;
-            agent.SetDestination(target.position);
+            if (time > changeSpeedFloat)
+            {
+                AISpeedChange();
+                time = 0;
+            }
+            //agent.speed = rndSpeed;
+
+            // setting Destination to the target.
+            if (followPath==true)
+            {
+                agent.SetDestination(target.position);
+            }
             enmyAnim.SetFloat("Run", agent.velocity.sqrMagnitude);
+
             if (agent.isOnOffMeshLink)
             {
                 agent.speed = onLinkSpeed;
@@ -53,6 +72,7 @@ public class HY_NavMeshEnemy : MonoBehaviour
                 agent.ResetPath();
             }
 
+
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -63,12 +83,21 @@ public class HY_NavMeshEnemy : MonoBehaviour
             enmyAnim.SetBool("Dash", true);
             agent.speed = rndSpeed * 1.5f;
         }
+        if (collision.transform.tag == "Jumper")
+        {
+            rb.AddForce(Vector3.up * 23f, ForceMode.Impulse);
+         
+                
+        }
+        
 
     }
-    float DistanceFromPlayer()
+    void AISpeedChange()
     {
-        return Vector3.Distance(transform.position, playerTrans.position);
+        rndSpeed = Random.Range(3, 9);
+
     }
+
     private void OnDrawGizmos()
     {
         if (agent.hasPath)

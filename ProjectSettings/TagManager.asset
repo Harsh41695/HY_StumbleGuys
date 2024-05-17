@@ -16,6 +16,7 @@ TagManager:
   - FourthSp
   - EndPoint
   - Enemy
+  - Obstacle
   layers:
   - Default
   - TransparentFX

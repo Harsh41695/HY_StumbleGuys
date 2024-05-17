@@ -16,7 +16,7 @@ public class HY_CameraControl : MonoBehaviour
     public FixedTouchField TouchField;
     private void Start()
     {
-        rot = Quaternion.Euler(28, 0, 0);
+        rot = Quaternion.Euler(28, player.rotation.y, 0);
 
     }
     private void LateUpdate()

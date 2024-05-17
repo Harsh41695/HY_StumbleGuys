@@ -167,7 +167,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 672662df4b350dc4aa5283d237d53239, type: 2}
+  - {fileID: 2100000, guid: ab9414cc680527842beb95a91add3324, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -255,7 +255,7 @@ Transform:
   m_GameObject: {fileID: 1578566972279284632}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000037252903, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.021759, z: 0.04166933}
+  m_LocalPosition: {x: 0, y: -2.021759, z: 0.13}
   m_LocalScale: {x: 14.398075, y: 13.012683, z: 14.382548}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -483,10 +483,10 @@ MonoBehaviour:
   fourthSp: {fileID: 0}
   inAir: 0
   effect: {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
-  LevelCompletedPanel: {fileID: 0}
   dashDuration: 0.5
   dashSpeed: 10
   scale: 0.75
+  canControl: 1
 --- !u!114 &2970841860895871249
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,8 +27,7 @@ public class HY_Player_Control : MonoBehaviour
     bool inAir;
     [SerializeField]
     GameObject effect;
-    [SerializeField]
-    GameObject LevelCompletedPanel;
+    
     //[SerializeField]
     //float lastTapTime = 0f, doubleTapThreshold = 0.3f;
     [SerializeField]
@@ -37,15 +36,21 @@ public class HY_Player_Control : MonoBehaviour
     [SerializeField]
     float scale = 0.75f;
     public bool canControl = true;
+ 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         isGrounded = false;
         animator = GetComponent<Animator>();
         spawnPoint = firstSp;
-        transform.position = spawnPoint.position;
+        if (spawnPoint != null)
+        {
+            transform.position = spawnPoint.position;
+            transform.rotation = spawnPoint.rotation;
+        }
         playerScale = new Vector3(scale, scale, scale);
         transform.localScale = playerScale;
+
 
     }
     // Update is called once per frame
@@ -53,6 +58,7 @@ public class HY_Player_Control : MonoBehaviour
     void Update()
     {
         CanAniamte();
+       
         if (canControl == true)
         {
             PlayerMovement();
@@ -61,6 +67,8 @@ public class HY_Player_Control : MonoBehaviour
                 MobileJumpBtn();
             }
         }
+       
+        
     }
     void HangingAnimation()
     {
@@ -75,6 +83,7 @@ public class HY_Player_Control : MonoBehaviour
         move = cam.transform.right * joystick.Horizontal +
                cam.transform.forward * joystick.Vertical;
         move.y = 0f;
+        if(rb!=null)
         rb.MovePosition(transform.position + move * moveSpeed * Time.deltaTime);
         if (move.magnitude != 0)
         {
@@ -145,8 +154,9 @@ public class HY_Player_Control : MonoBehaviour
             collision.transform.tag == "RightMover" ||
             collision.transform.tag == "Water")
         {
-
+           
             animator.SetBool("Hanging", false);
+          
             isGrounded = true;
             jumpbtnPressed = false;
             inAir = false;
@@ -176,6 +186,8 @@ public class HY_Player_Control : MonoBehaviour
             // transform.position = spawnPoint.position;
         }
     }
+   
+    
     IEnumerator SpawnWait()
     {
         yield return new WaitForSeconds(waitForSec);
@@ -201,6 +213,6 @@ public class HY_Player_Control : MonoBehaviour
                 spawnPoint = fourthSp;
                 break;
         }
-        
+
     }
 }

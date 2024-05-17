@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/HY_Assets/Scenes_HY/MainMenu_.unity
+    path: Assets/HY_Assets/HY_Scenes/0_MainMenu_.unity
     guid: b5f797743d756a344abdfa44d235819e
   - enabled: 1
-    path: Assets/HY_Assets/Scenes_HY/Level_1.unity
+    path: Assets/HY_Assets/HY_Scenes/Level_1.unity
     guid: 37a4d34cfbec9264ead4c7dfdecb0bc5
+  - enabled: 1
+    path: Assets/HY_Assets/HY_Scenes/Level_2.unity
+    guid: 6749b207a46677b4bb61a4997dd0b905
   m_configObjects: {}

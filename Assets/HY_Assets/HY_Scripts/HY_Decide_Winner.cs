@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
@@ -11,23 +12,21 @@ public class HY_Decide_Winner : MonoBehaviour
     [SerializeField]
     HY_NavMeshEnemy[] enemyRef;
     [SerializeField]
-    GameObject win_Loose_Canvas, canvas, winPanel, loosePanel, newCamera;
-    bool isCalled=false;
-    
+    GameObject levelEndPanel;
+    [SerializeField]
+    TextMeshProUGUI winLooseTxt;
+    bool isCalled = false;
+
     void Update()
     {
         if (isPlayerWin)
         {
+            winLooseTxt.text = "QUALIFIED";
+            levelEndPanel.SetActive(true);
             time += Time.deltaTime;
             if (time > 5)
             {
-               
-                canvas.SetActive(false);
-                win_Loose_Canvas.SetActive(true);
-                newCamera.SetActive(true);
-                winPanel.SetActive(true);
-                loosePanel.SetActive(false);
-                if (time > 12)
+                if (time > 10)
                 {
                     SceneManager.LoadScene(0);
                 }
@@ -35,14 +34,11 @@ public class HY_Decide_Winner : MonoBehaviour
         }
         if (isEnemyWin)
         {
+            winLooseTxt.text = "DISQUALIFIED";
+            levelEndPanel.SetActive(true);
             time += Time.deltaTime;
             if (time > 5)
             {
-                canvas.SetActive(false);
-                win_Loose_Canvas.SetActive(true);
-                newCamera.SetActive(true);
-                winPanel.SetActive(false);
-                loosePanel.SetActive(true);
                 if (time >= 9)
                 {
                     SceneManager.LoadScene(0);
@@ -79,7 +75,7 @@ public class HY_Decide_Winner : MonoBehaviour
             isEnemyWin = true;
             playerControl.GetComponent<Animator>().SetTrigger("Defeat");
             playerControl.canControl = false;
-           // other.GetComponent<Animator>().SetTrigger("Victory");
+            // other.GetComponent<Animator>().SetTrigger("Victory");
             other.gameObject.GetComponent<HY_NavMeshEnemy>().touchedFinishLine = true;
             if (isCalled == false)
             {
@@ -91,15 +87,18 @@ public class HY_Decide_Winner : MonoBehaviour
                     }
                     else
                     {
-                        item.GetComponent<Animator>().SetTrigger("Defeat");
-                        item.GetComponent<NavMeshAgent>().speed = 0;
-                        item.canMove = false;
+                        if (item.isActiveAndEnabled)
+                        {
+                            item.GetComponent<Animator>().SetTrigger("Defeat");
+                            item.GetComponent<NavMeshAgent>().speed = 0;
+                            item.canMove = false;
+                        }
                     }
-                    isCalled=true;
+                    isCalled = true;
 
                 }
             }
-            
+
         }
     }
 
