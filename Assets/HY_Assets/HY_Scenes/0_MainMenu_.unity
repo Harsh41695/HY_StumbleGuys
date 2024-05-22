@@ -466,21 +466,9 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!1 &870217462 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4240620638183613366, guid: 6e57caabade17c648885770190461765,
-    type: 3}
-  m_PrefabInstance: {fileID: 2581751707590817710}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1028524187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8023398463601234188, guid: 6e57caabade17c648885770190461765,
-    type: 3}
-  m_PrefabInstance: {fileID: 2581751707590817710}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1283661224 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2643085367389324221, guid: 6e57caabade17c648885770190461765,
     type: 3}
   m_PrefabInstance: {fileID: 2581751707590817710}
   m_PrefabAsset: {fileID: 0}
@@ -529,9 +517,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   exitPanel: {fileID: 339065604480041763}
-  shopPanel: {fileID: 870217462}
-  missionPanel: {fileID: 1283661224}
-  playerModel: {fileID: 472171752}
+  shopPanel: {fileID: 0}
+  missionPanel: {fileID: 0}
+  playerModel: {fileID: 0}
 --- !u!1 &1397618845
 GameObject:
   m_ObjectHideFlags: 0
