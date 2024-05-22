@@ -906,6 +906,12 @@ MonoBehaviour:
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
+--- !u!4 &638075263 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2826217497109511855, guid: 483797fe02536804a947a32ddc969989,
+    type: 3}
+  m_PrefabInstance: {fileID: 1112962654462840283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &659728498 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 994230600544062896, guid: 4d470ef749a86e549bc761c43fb87097,
@@ -1688,6 +1694,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f27d7e288b78a1d45a80157df1650d72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1031589641 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3620961600432342637, guid: 483797fe02536804a947a32ddc969989,
+    type: 3}
+  m_PrefabInstance: {fileID: 1112962654462840283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1051578834
 GameObject:
   m_ObjectHideFlags: 0
@@ -1740,6 +1752,12 @@ MonoBehaviour:
   m_Bidirectional: 1
   m_AutoUpdatePosition: 0
   m_Area: 0
+--- !u!4 &1076150510 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1264440036796615672, guid: 483797fe02536804a947a32ddc969989,
+    type: 3}
+  m_PrefabInstance: {fileID: 1112962654462840283}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1116395326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,9 +2024,24 @@ PrefabInstance:
       objectReference: {fileID: 4302731770888535363}
     - target: {fileID: 9211670575933494807, guid: 57d72641ed5644743b7f0cd7dc985077,
         type: 3}
+      propertyPath: thirdSp
+      value: 
+      objectReference: {fileID: 638075263}
+    - target: {fileID: 9211670575933494807, guid: 57d72641ed5644743b7f0cd7dc985077,
+        type: 3}
+      propertyPath: fourthSp
+      value: 
+      objectReference: {fileID: 1031589641}
+    - target: {fileID: 9211670575933494807, guid: 57d72641ed5644743b7f0cd7dc985077,
+        type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1470671094}
+    - target: {fileID: 9211670575933494807, guid: 57d72641ed5644743b7f0cd7dc985077,
+        type: 3}
+      propertyPath: secondSp
+      value: 
+      objectReference: {fileID: 1076150510}
     - target: {fileID: 9211670575933494807, guid: 57d72641ed5644743b7f0cd7dc985077,
         type: 3}
       propertyPath: maxAirTime
@@ -4609,6 +4642,11 @@ PrefabInstance:
       propertyPath: enemyRef.Array.data[3]
       value: 
       objectReference: {fileID: 1686305861}
+    - target: {fileID: 7465465033021143528, guid: 483797fe02536804a947a32ddc969989,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8575717603453813748, guid: 483797fe02536804a947a32ddc969989,
         type: 3}
       propertyPath: m_Name

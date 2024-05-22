@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         levelIndex = Random.Range(1, 3);
+        loadingScreen.SetActive(false);
     }
     public void PlayBtn()
     {
@@ -25,9 +26,10 @@ public class GameManager : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
         while (!operation.isDone)
         {
+            loadingScreen.SetActive(true);
             progress = Mathf.Clamp01(operation.progress/.9f);
             slider.fillAmount= progress;
-            loadingScreen.SetActive(true);
+            playerModel.SetActive(false);
             yield return null;
         }
     }
