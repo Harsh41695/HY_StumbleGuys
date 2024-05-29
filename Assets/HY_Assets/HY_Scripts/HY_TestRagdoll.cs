@@ -11,7 +11,7 @@ public class HY_TestRagdoll : MonoBehaviour
     Transform hip;
     
     public GameObject Parent;
-    HY_NavMeshEnemy _refNavMesh;
+    public HY_NavMeshEnemy _refNavMesh;
     void Awake()
     {
         _refNavMesh = GetComponentInParent<HY_NavMeshEnemy>();
@@ -21,18 +21,8 @@ public class HY_TestRagdoll : MonoBehaviour
         agent_Ref = GetComponentInParent<NavMeshAgent>();
     }
 
-    [System.Obsolete]
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    animator.enabled = false;
-        //    agent_Ref.speed = 0;
-        //    agent_Ref.Stop();
-        //    DisableKinamatic();
-        //}
-       
-    }
+   
+  
     void EnableKinamatic()
     {
         foreach (var child in childRbs)
@@ -55,7 +45,7 @@ public class HY_TestRagdoll : MonoBehaviour
        // HY_NavMeshEnemy.goRagdoll = false;
         Parent.transform.position = transform.position;
         animator.enabled = true;
-        //followPath = true;
+        
         _refNavMesh.followPath = true;
         foreach (var child in childRbs)
         {
@@ -73,7 +63,7 @@ public class HY_TestRagdoll : MonoBehaviour
             Debug.Log("Collided to the obstacle");
             animator.enabled = false;
             agent_Ref.speed = 0;
-            //agent_Ref.Stop();
+            agent_Ref.ResetPath();
            // followPath = false;
            _refNavMesh.followPath=false;
             DisableKinamatic();
