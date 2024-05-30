@@ -8,6 +8,7 @@ public class HY_UIManager : MonoBehaviour
         selectedWeeklyMissionBtn, unSelectedWeeklyMissionBtn,//Weekly Buttons
         selectAchivementBtn, unSelectedAchivementBtn,//Achivement Buttons
         dailyMissionPanel, weeklyMissionPanel, achivementPanel;// Panel references
+    bool isAnyOtherPanelActive;
 
     void Start()
     {
@@ -31,21 +32,27 @@ public class HY_UIManager : MonoBehaviour
     }
     public void ShopBtn()//
     {
+        isAnyOtherPanelActive = true;
+
         shopPanel.SetActive(true);
         playerModel.SetActive(false);
     }
     public void MissionBtn()//
     {
+        isAnyOtherPanelActive = true;
+
         missionPanel.SetActive(true);
         playerModel.SetActive(false);
     }
     public void HomeBtn()//
     {
+        isAnyOtherPanelActive = false;
         shopPanel.SetActive(false);
         playerModel.SetActive(true);
     }
     public void MissionExitBtn()//
     {
+        isAnyOtherPanelActive = false;
         missionPanel.SetActive(false);
         playerModel.SetActive(true);
 
@@ -93,13 +100,31 @@ public class HY_UIManager : MonoBehaviour
 
     public void SettingBtn()
     {
+        isAnyOtherPanelActive = true;
         playerModel.SetActive(false);
         settingPanel.SetActive(true);
 
     }
+    bool isAnyPanelOpen()
+    {
+        if (shopPanel.activeInHierarchy || missionPanel.activeInHierarchy)
+        {
+            return true;
+        }
+        return false;
+    }
     public void SettingExit()
     {
         settingPanel.SetActive(false);
-        playerModel.SetActive(true);
+
+        if (isAnyPanelOpen())
+        {
+            playerModel.SetActive(false);
+        }
+        else
+        {
+            playerModel.SetActive(true);
+        }
+
     }
 }
