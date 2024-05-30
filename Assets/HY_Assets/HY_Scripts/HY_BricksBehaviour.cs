@@ -25,7 +25,7 @@ public class HY_BricksBehaviour : MonoBehaviour
         
         if (go)
         {
-            time += Time.deltaTime;
+            time += Time.deltaTime * 1.25f;
             if (transform.localScale.x >= 0f)
             {
                 transform.localScale -= new Vector3(time, time, time);
@@ -56,7 +56,7 @@ public class HY_BricksBehaviour : MonoBehaviour
     }
     IEnumerator WaitMan()
     {
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.2f);
         go = true;
     }
 
