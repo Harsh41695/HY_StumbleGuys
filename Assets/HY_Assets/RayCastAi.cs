@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RayCastAi : MonoBehaviour
@@ -10,56 +8,58 @@ public class RayCastAi : MonoBehaviour
     [SerializeField] private LayerMask layer;
     Rigidbody rb;
     [SerializeField]
-    float moveSpeed = 5f;
-    bool rotateOnce=false;
+    float moveSpeed = 5f, force = 7f;
+    bool rotateOnce = false;
     RaycastHit hit;
-    float maxdis;
+    [SerializeField] private float maxdis = 100f;
+    float time;
+    Vector3 randomDirection;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        
     }
-
-    // Update is called once per frame
-   
-
-    void movement()
-    {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 dir = (transform.right * x + transform.forward * z).normalized;
-        transform.position+=dir*moveSpeed*Time.deltaTime;
-    }
+    //void movement()
+    //{
+    //    float x = Input.GetAxis("Horizontal");
+    //    float z = Input.GetAxis("Vertical");
+    //    Vector3 dir = (transform.right * x + transform.forward * z).normalized;
+    //    transform.position += dir * moveSpeed * Time.deltaTime;
+    //}
     private void Update()
     {
-        Physics.Raycast(transform.position,transform.forward,out hit,maxdis);
-        Debug.DrawLine(transform.position,hit.point,Color.red);
-    }
-    void testTypeOne()
-    {
 
-        RaycastHit hit;
-        if (Physics.Raycast(m_transform.position, m_transform.forward, out hit, 20f, layer))
+        if (Physics.Raycast(m_transform.position, m_transform.forward, out hit, maxdis))
         {
-            //Vector3 randomDirection = Quaternion.Euler(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0) * transform.forward;
-            //rb.MovePosition(transform.position + randomDirection * moveSpeed * Time.DeltaTime);
+            // if (!rotateOnce)
 
-
-            Debug.Log("Ray Collide to ground");
-
-            Debug.DrawLine(m_transform.position, m_transform.forward, Color.cyan);
-        }
-        else
-        {
-            if (!rotateOnce)
+            if (hit.collider.tag == "Wall")
             {
-                rotateOnce = true;
                 Vector3 randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0) * transform.forward;
                 rb.MoveRotation(Quaternion.LookRotation(randomDirection));
             }
 
-            Debug.DrawLine(m_transform.position, m_transform.forward, Color.green);
-            // Debug.DrawRay(m_transform.position, Vector3.forward, Color.green);
+            Debug.DrawLine(m_transform.position, hit.point, Color.red);
         }
+        else
+        {
+            Vector3 randomDirection = Quaternion.Euler(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0) * transform.forward;
+            rb.MovePosition(transform.position + randomDirection * moveSpeed * Time.deltaTime);
+            time += Time.deltaTime;
+            if (time > 0.25f)
+            {
+                rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+                rb.MoveRotation(Quaternion.LookRotation(RandoRoatation()));
+                time = 0f;
+            }
+            Debug.DrawLine(m_transform.position, m_transform.forward * maxdis, Color.green);
+        }
+
+
     }
+    Vector3 RandoRoatation()
+
+    {
+        return  randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0) * transform.forward;
+    }
+
 }

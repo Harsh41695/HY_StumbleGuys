@@ -42,10 +42,10 @@ public class HY_BricksBehaviour : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy ")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
         {
             mr.material = red;
-            if (HY_StartPause.countOver == true)
+            //if (HY_StartPause.countOver == true)
             {
                 StartCoroutine(WaitMan());
             }

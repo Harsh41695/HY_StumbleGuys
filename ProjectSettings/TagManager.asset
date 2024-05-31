@@ -18,6 +18,7 @@ TagManager:
   - Enemy
   - Obstacle
   - Fluied
+  - Wall
   layers:
   - Default
   - TransparentFX
