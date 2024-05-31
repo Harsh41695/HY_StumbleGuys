@@ -37,7 +37,7 @@ public class RayCastAi : MonoBehaviour
             if (hit.collider.tag == "Wall")
             {
                 Quaternion randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0);// * transform.forward;
-                transform.rotation = Quaternion.Slerp(transform.rotation, randomDirection, 5f);
+                transform.rotation = Quaternion.Slerp(transform.rotation, randomDirection, 100f);
                // rb.MoveRotation(Quaternion.LookRotation(randomDirection));
             }
 

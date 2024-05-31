@@ -45,7 +45,7 @@ public class HY_BricksBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Enemy")
         {
             mr.material = red;
-            //if (HY_StartPause.countOver == true)
+            if (HY_StartPause.countOver == true)
             {
                 StartCoroutine(WaitMan());
             }

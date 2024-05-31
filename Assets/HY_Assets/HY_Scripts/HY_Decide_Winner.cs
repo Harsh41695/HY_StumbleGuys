@@ -95,7 +95,6 @@ public class HY_Decide_Winner : MonoBehaviour
                         }
                     }
                     isCalled = true;
-
                 }
             }
 

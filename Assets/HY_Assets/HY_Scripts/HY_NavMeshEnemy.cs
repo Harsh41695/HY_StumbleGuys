@@ -22,7 +22,7 @@ public class HY_NavMeshEnemy : MonoBehaviour
     void Start()
     {
         //goRagdoll = false;
-        rb=GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         followPath = true;
         agent = GetComponent<NavMeshAgent>();
         plc = GetComponent<HY_Player_Control>();
@@ -36,9 +36,9 @@ public class HY_NavMeshEnemy : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
         if (canMove == true)
         {
+            time += Time.deltaTime;
             if (time > changeSpeedFloat)
             {
                 AISpeedChange();
@@ -47,7 +47,7 @@ public class HY_NavMeshEnemy : MonoBehaviour
             //agent.speed = rndSpeed;
 
             // setting Destination to the target.
-            if (followPath==true)
+            if (followPath == true)
             {
                 agent.SetDestination(target.position);
             }
@@ -86,10 +86,10 @@ public class HY_NavMeshEnemy : MonoBehaviour
         if (collision.transform.tag == "Jumper")
         {
             rb.AddForce(Vector3.up * 23f, ForceMode.Impulse);
-         
-                
+
+
         }
-        
+
 
     }
     void AISpeedChange()
