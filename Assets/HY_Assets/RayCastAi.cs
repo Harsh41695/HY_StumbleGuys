@@ -13,10 +13,12 @@ public class RayCastAi : MonoBehaviour
     RaycastHit hit;
     [SerializeField] private float maxdis = 100f;
     float time;
+    Animator animator;
     Vector3 randomDirection;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponent<Animator>();
     }
     //void movement()
     //{
@@ -34,8 +36,9 @@ public class RayCastAi : MonoBehaviour
 
             if (hit.collider.tag == "Wall")
             {
-                Vector3 randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0) * transform.forward;
-                rb.MoveRotation(Quaternion.LookRotation(randomDirection));
+                Quaternion randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0);// * transform.forward;
+                transform.rotation = Quaternion.Slerp(transform.rotation, randomDirection, 5f);
+               // rb.MoveRotation(Quaternion.LookRotation(randomDirection));
             }
 
             Debug.DrawLine(m_transform.position, hit.point, Color.red);
@@ -43,14 +46,27 @@ public class RayCastAi : MonoBehaviour
         else
         {
             Vector3 randomDirection = Quaternion.Euler(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0) * transform.forward;
+            animator.SetFloat("Run", randomDirection.magnitude);
             rb.MovePosition(transform.position + randomDirection * moveSpeed * Time.deltaTime);
+            animator.SetBool("Jump", false);
+            animator.SetBool("Hanging", false);
             time += Time.deltaTime;
-            if (time > 0.25f)
+            if (time > 1f)
             {
-                rb.AddForce(Vector3.up * force, ForceMode.Impulse);
-                rb.MoveRotation(Quaternion.LookRotation(RandoRoatation()));
-                time = 0f;
+               
+                if (!rotateOnce)
+                {
+                    rotateOnce = true;
+                    rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+                    animator.SetBool("Jump", true);
+                    animator.SetBool("Hanging", true);
+                    //rb.MoveRotation(Quaternion.LookRotation(RandoRoatation()));
+                }
+               
+                rotateOnce = false;
+            time = 0;
             }
+
             Debug.DrawLine(m_transform.position, m_transform.forward * maxdis, Color.green);
         }
 
@@ -59,7 +75,7 @@ public class RayCastAi : MonoBehaviour
     Vector3 RandoRoatation()
 
     {
-        return  randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0) * transform.forward;
+        return randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0) * transform.forward;
     }
 
 }
