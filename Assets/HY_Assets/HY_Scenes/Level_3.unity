@@ -2028,6 +2028,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7079628510849262288, guid: fc38c485e631af241953484851f8f0fa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079628510849262288, guid: fc38c485e631af241953484851f8f0fa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.81
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079628510849262288, guid: fc38c485e631af241953484851f8f0fa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 7079628510849262288, guid: fc38c485e631af241953484851f8f0fa,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7601756167181150987, guid: fc38c485e631af241953484851f8f0fa,
         type: 3}
       propertyPath: m_Name
