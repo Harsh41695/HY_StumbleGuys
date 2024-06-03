@@ -25,6 +25,6 @@ public class Rotate : MonoBehaviour
     [System.Obsolete]
     void TransformRotation()
     {
-        transform.rotation *= Quaternion.EulerRotation(new Vector3(0, 0, 1*rotSpeed * Time.deltaTime));
+        transform.rotation *= Quaternion.EulerRotation(new Vector3(0,1*rotSpeed * Time.deltaTime,0));
     }
 }
