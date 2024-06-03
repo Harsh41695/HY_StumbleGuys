@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RayCastAi : MonoBehaviour
+public class HY_RayCastAi : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
@@ -38,7 +38,7 @@ public class RayCastAi : MonoBehaviour
             {
                 Quaternion randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0);// * transform.forward;
                 transform.rotation = Quaternion.Slerp(transform.rotation, randomDirection, 100f);
-               // rb.MoveRotation(Quaternion.LookRotation(randomDirection));
+                // rb.MoveRotation(Quaternion.LookRotation(randomDirection));
             }
 
             Debug.DrawLine(m_transform.position, hit.point, Color.red);
@@ -53,7 +53,6 @@ public class RayCastAi : MonoBehaviour
             time += Time.deltaTime;
             if (time > 1f)
             {
-               
                 if (!rotateOnce)
                 {
                     rotateOnce = true;
@@ -62,9 +61,8 @@ public class RayCastAi : MonoBehaviour
                     animator.SetBool("Hanging", true);
                     //rb.MoveRotation(Quaternion.LookRotation(RandoRoatation()));
                 }
-               
                 rotateOnce = false;
-            time = 0;
+                time = 0;
             }
 
             Debug.DrawLine(m_transform.position, m_transform.forward * maxdis, Color.green);

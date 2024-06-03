@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotation : MonoBehaviour
+public class HY_Rotation : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]

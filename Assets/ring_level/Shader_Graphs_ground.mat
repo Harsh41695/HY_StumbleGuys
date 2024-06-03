@@ -77,6 +77,8 @@ Material:
     m_Floats:
     - _AlphaClip: 1
     - _AlphaToMask: 1
+    - _BUILTIN_QueueControl: -1
+    - _BUILTIN_QueueOffset: 0
     - _Blend: 0
     - _CastShadows: 1
     - _Cull: 2
