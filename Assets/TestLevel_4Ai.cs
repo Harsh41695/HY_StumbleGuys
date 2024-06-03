@@ -19,7 +19,7 @@ public class TestLevel_4Ai : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //RayForward();
+        RayForward();
         BackwardRayCast();
     }
     void RayForward()
