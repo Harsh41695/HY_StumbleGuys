@@ -97,9 +97,26 @@ public class HY_UIManager : MonoBehaviour
         settingPanel.SetActive(true);
 
     }
+    bool isAnyPanelOpen()
+    {
+        if (shopPanel.activeInHierarchy || missionPanel.activeInHierarchy)
+        {
+            return true;
+        }
+        return false;
+    }
     public void SettingExit()
     {
         settingPanel.SetActive(false);
-        playerModel.SetActive(true);
+
+        if (isAnyPanelOpen())
+        {
+            playerModel.SetActive(false);
+        }
+        else
+        {
+            playerModel.SetActive(true);
+        }
+
     }
 }
