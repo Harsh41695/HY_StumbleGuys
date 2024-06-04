@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
    
     private void Start()
     {
-        levelIndex = Random.Range(1, 3);
+        //levelIndex = Random.Range(1, 3);
         loadingScreen.SetActive(false);
     }
     public void PlayBtn()
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator LoadSceneAsync()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+        AsyncOperation operation = SceneManager.LoadSceneAsync("01_Loading_Screen");
         while (!operation.isDone)
         {
             loadingScreen.SetActive(true);
