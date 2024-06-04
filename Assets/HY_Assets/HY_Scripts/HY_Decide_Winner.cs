@@ -12,7 +12,7 @@ public class HY_Decide_Winner : MonoBehaviour
     [SerializeField]
     HY_NavMeshEnemy[] enemyRef;
     [SerializeField]
-    GameObject levelEndPanel;
+    GameObject levelEndPanel,winnerBGImg;
     [SerializeField]
     TextMeshProUGUI winLooseTxt;
     bool isCalled = false;
@@ -23,6 +23,7 @@ public class HY_Decide_Winner : MonoBehaviour
         {
             winLooseTxt.text = "QUALIFIED";
             levelEndPanel.SetActive(true);
+            winnerBGImg.SetActive(true);
             time += Time.deltaTime;
             if (time > 5)
             {

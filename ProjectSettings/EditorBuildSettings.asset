@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/HY_Assets/HY_Scenes/Level_2.unity
     guid: 6749b207a46677b4bb61a4997dd0b905
   - enabled: 1
+    path: Assets/HY_Assets/HY_Scenes/Level_3.unity
+    guid: cce4a64c57127484aba738c0fd1c5a5e
+  - enabled: 1
     path: Assets/HY_Assets/HY_Scenes/level_04_ring.unity
     guid: 45c4880a0c10bb947ba5a210a3d528d7
   m_configObjects: {}

@@ -60,7 +60,7 @@ public class HY_TestRagdoll : MonoBehaviour
     {
         if (collision.transform.tag == "Obstacle")
         {
-            Debug.Log("Collided to the obstacle");
+           // Debug.Log("Collided to the obstacle");
             animator.enabled = false;
             agent_Ref.speed = 0;
             agent_Ref.ResetPath();

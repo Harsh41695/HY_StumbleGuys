@@ -10,7 +10,7 @@ public class _CheckWinner : MonoBehaviour
     List<GameObject> enemyList = new List<GameObject>();
     bool canRunUpdate;
     [SerializeField]
-    GameObject levelEndPanel;
+    GameObject levelEndPanel,winnerBGImg;
     [SerializeField]
     TextMeshProUGUI winLooseTxt;
     float time;
@@ -20,6 +20,7 @@ public class _CheckWinner : MonoBehaviour
     void Start()
     {
         canRunUpdate = true;
+        winnerBGImg.SetActive(false);
         
     }
 
@@ -51,11 +52,13 @@ public class _CheckWinner : MonoBehaviour
         {
             winLooseTxt.text = "QUALIFIED";
             levelEndPanel.SetActive(true);
+            winnerBGImg.SetActive(true);
             time += Time.deltaTime;
             if (time > 5)
             {
                 if (time > 10)
                 {
+                    //Complete screen.
                     SceneManager.LoadScene(0);
                 }
             }
@@ -69,6 +72,7 @@ public class _CheckWinner : MonoBehaviour
             {
                 if (time >= 9)
                 {
+                    // Complete screen.
                     SceneManager.LoadScene(0);
                 }
             }

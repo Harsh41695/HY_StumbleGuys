@@ -38,12 +38,12 @@ public class TestLevel_4Ai : MonoBehaviour
     private void BackwardRayCast()
     {
         RaycastHit hit;
-        if (Physics.Raycast(faceTrans.position, -faceTrans.forward, out hit, maxDistace))
+        if (Physics.Raycast(faceTrans.position, -faceTrans.forward, out hit, maxDistace) && isGrounded)
         {
-            if (hit.collider.tag == "Wall")
-            {
+            //if (hit.collider.tag == "Wall")
+            //{
                 DoJump();
-            }
+           // }
             Debug.DrawLine(faceTrans.position, hit.point, Color.red);
         }
 
@@ -62,6 +62,15 @@ public class TestLevel_4Ai : MonoBehaviour
             isGrounded = true;
             animator.SetBool("Jump", false);
             animator.SetBool("Hanging", false);
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
+            animator.SetBool("Jump", true);
+            animator.SetBool("Hanging", true);
         }
     }
 }
