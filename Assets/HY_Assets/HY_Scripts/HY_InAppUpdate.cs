@@ -2,16 +2,13 @@ using UnityEngine;
 using System.Collections;
 using Google.Play.AppUpdate;
 using Google.Play.Common;
-using Unity.VisualScripting;
-
 public class HY_InAppUpdate : MonoBehaviour
 {
     [SerializeField] private GameObject updatePanel;
     AppUpdateManager appUpdateManager;
-    bool update = false;
+    //bool update = false;
     [SerializeField]
-    private string playStoreUrlLink;
-
+    private string playStoreUrlLink= "https://play.google.com/store/apps/details?id=com.mailtoalbatrossgamingstudios.PawSomeAdventure&pli=1";
     void Awake()
     {
         if (Application.platform == RuntimePlatform.Android)
@@ -21,7 +18,7 @@ public class HY_InAppUpdate : MonoBehaviour
 
         StartCoroutine(CheckForUpdate());
     }
-#if !Unity_Editor
+
     IEnumerator CheckForUpdate()
     {
         PlayAsyncOperation<AppUpdateInfo, AppUpdateErrorCode> appupdateInfoOperation =
@@ -55,7 +52,7 @@ public class HY_InAppUpdate : MonoBehaviour
         updatePanel.SetActive(false);
         //or Application Quit.
     }
-#endif
+
 }
 
 

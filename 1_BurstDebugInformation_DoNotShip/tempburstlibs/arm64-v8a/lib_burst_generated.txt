@@ -12,6 +12,9 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=CFXRDemo;
 --assembly-defines=CFXRRuntime;
+--assembly-defines=Google.Play.AppUpdate;
+--assembly-defines=Google.Play.Common;
+--assembly-defines=Google.Play.Core;
 --assembly-defines=KinoBloom.Runtime;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
@@ -19,9 +22,13 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=System.Core;
 --assembly-defines=System;
 --assembly-defines=System.Xml;
+--assembly-defines=Unity.AI.Navigation;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Burst.Unsafe;
 --assembly-defines=Unity.Mathematics;
+--assembly-defines=Unity.ProBuilder;
+--assembly-defines=Unity.ProBuilder.KdTree;
+--assembly-defines=Unity.ProBuilder.Poly2Tri;
 --assembly-defines=Unity.RenderPipeline.Universal.ShaderLibrary;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
@@ -47,6 +54,9 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=CFXRDemo;
 --assembly-defines=CFXRRuntime;
+--assembly-defines=Google.Play.AppUpdate;
+--assembly-defines=Google.Play.Common;
+--assembly-defines=Google.Play.Core;
 --assembly-defines=KinoBloom.Runtime;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
@@ -54,9 +64,13 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=System.Core;
 --assembly-defines=System;
 --assembly-defines=System.Xml;
+--assembly-defines=Unity.AI.Navigation;
 --assembly-defines=Unity.Burst;
 --assembly-defines=Unity.Burst.Unsafe;
 --assembly-defines=Unity.Mathematics;
+--assembly-defines=Unity.ProBuilder;
+--assembly-defines=Unity.ProBuilder.KdTree;
+--assembly-defines=Unity.ProBuilder.Poly2Tri;
 --assembly-defines=Unity.RenderPipeline.Universal.ShaderLibrary;
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;

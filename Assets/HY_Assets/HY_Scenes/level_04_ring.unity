@@ -31183,6 +31183,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CowPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 5302815459605972919, guid: 57d72641ed5644743b7f0cd7dc985077,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9211670575933494807, guid: 57d72641ed5644743b7f0cd7dc985077,
         type: 3}
       propertyPath: cam
@@ -31994,6 +31999,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5765580874000074830, guid: 1d230bd5a56b2954fab8317af3128507,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7247715715345399445, guid: 1d230bd5a56b2954fab8317af3128507,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -32002,6 +32012,11 @@ PrefabInstance:
     - target: {fileID: 7247715715345399445, guid: 1d230bd5a56b2954fab8317af3128507,
         type: 3}
       propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8335695495548166756, guid: 1d230bd5a56b2954fab8317af3128507,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8840238664081553521, guid: 1d230bd5a56b2954fab8317af3128507,
@@ -33889,7 +33904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &901423603488822345
 MeshFilter:
   m_ObjectHideFlags: 0

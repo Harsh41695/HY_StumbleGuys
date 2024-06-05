@@ -12,6 +12,9 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=CFXRDemo;
 --assembly-defines=CFXRRuntime;
+--assembly-defines=Google.Play.AppUpdate;
+--assembly-defines=Google.Play.Common;
+--assembly-defines=Google.Play.Core;
 --assembly-defines=KinoBloom.Runtime;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
@@ -30,7 +33,6 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Timeline;
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Unity\HY_StumbleGuys\Temp\Burst
@@ -52,6 +54,9 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=Assembly-CSharp;
 --assembly-defines=CFXRDemo;
 --assembly-defines=CFXRRuntime;
+--assembly-defines=Google.Play.AppUpdate;
+--assembly-defines=Google.Play.Common;
+--assembly-defines=Google.Play.Core;
 --assembly-defines=KinoBloom.Runtime;
 --assembly-defines=Mono.Security;
 --assembly-defines=mscorlib;
@@ -70,7 +75,6 @@ Library: C:\Unity\HY_StumbleGuys\Temp\BurstOutput\tempburstlibs\arm64-v8a\lib_bu
 --assembly-defines=Unity.RenderPipelines.Core.Runtime;
 --assembly-defines=Unity.RenderPipelines.Universal.Runtime;
 --assembly-defines=Unity.TextMeshPro;
---assembly-defines=Unity.Timeline;
 --assembly-defines=UnityEngine;
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=C:\Unity\HY_StumbleGuys\Temp\Burst

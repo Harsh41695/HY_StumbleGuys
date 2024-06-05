@@ -27,17 +27,12 @@ public class HY_MainIMGChange : MonoBehaviour
     {
         if (canRun)
         {
-
-
-            time += Time.deltaTime;
+            time += Time.deltaTime*7;
             index = (int)time;
             if (index >= levelImgs.Count)
             {
-
                 time = 0;
                 index = 0;
-
-
             }
             mainImg.sprite = levelImgs[index];
         }

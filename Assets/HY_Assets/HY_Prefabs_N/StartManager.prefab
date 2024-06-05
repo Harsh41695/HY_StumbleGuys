@@ -45,9 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite:
-  - {fileID: 21300028, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
-  - {fileID: 21300030, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
-  - {fileID: 21300032, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
+  - {fileID: 21300000, guid: ae1d7143bf86bf04ba68e8b1a5cf93d7, type: 3}
+  - {fileID: 21300000, guid: 44b4321ca7839df4c8d36662b62582bd, type: 3}
+  - {fileID: 21300000, guid: 4f486587a3c7638499964e4f0160a5d7, type: 3}
   img: {fileID: 0}
   Enemies: {fileID: 0}
   Panel: {fileID: 0}
