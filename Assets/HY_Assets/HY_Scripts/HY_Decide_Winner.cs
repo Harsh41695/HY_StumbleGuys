@@ -12,7 +12,7 @@ public class HY_Decide_Winner : MonoBehaviour
     [SerializeField]
     HY_NavMeshEnemy[] enemyRef;
     [SerializeField]
-    GameObject levelEndPanel,winnerBGImg;
+    GameObject levelEndPanel, winnerBGImg;
     [SerializeField]
     TextMeshProUGUI winLooseTxt;
     bool isCalled = false;
@@ -25,26 +25,22 @@ public class HY_Decide_Winner : MonoBehaviour
             levelEndPanel.SetActive(true);
             winnerBGImg.SetActive(true);
             time += Time.deltaTime;
-            if (time > 5)
+            if (time > 10)
             {
-                if (time > 10)
-                {
-                    SceneManager.LoadScene(0);
-                }
+                SceneManager.LoadScene(0);
             }
+
         }
         if (isEnemyWin)
         {
             winLooseTxt.text = "DISQUALIFIED";
             levelEndPanel.SetActive(true);
             time += Time.deltaTime;
-            if (time > 5)
+            if (time >= 9)
             {
-                if (time >= 9)
-                {
-                    SceneManager.LoadScene(0);
-                }
+                SceneManager.LoadScene(0);
             }
+
         }
     }
     private void OnTriggerEnter(Collider other)

@@ -40,7 +40,7 @@ public class _CheckWinner : MonoBehaviour
             if (HY_DeathZone.enemyDeathCount < 0)
             {
                 enemyWon = true;
-                Debug.Log("Player death");
+              
             }
         }
         WhoWon();

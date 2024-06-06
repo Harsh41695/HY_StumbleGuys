@@ -67,8 +67,8 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 1000
-  field of view: 70
+  far clip plane: 1500
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -150,12 +150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32826c2ea7a5ca42a15e0560fc976f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dis: 7
-  minY: 1
-  maxY: 25
-  sensivity: 5
+  dis: 12
+  minY: 5
+  maxY: 55
+  sensivity: 3
   speed: 0
-  sensivityY: 5
+  sensivityY: 3
   lookAt: {fileID: 0}
   player: {fileID: 0}
   dir: {x: 0, y: 0, z: -8}

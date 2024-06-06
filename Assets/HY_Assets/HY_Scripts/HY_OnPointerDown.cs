@@ -8,7 +8,7 @@ public class HY_OnPointerDown : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         player_Ref.MobileJumpBtn();
-        Debug.Log("Jump Called");
+       
     }
 
     // Start is called before the first frame update
