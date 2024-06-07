@@ -27,7 +27,7 @@ public class HY_MainIMGChange : MonoBehaviour
     {
         if (canRun)
         {
-            time += Time.deltaTime*7;
+            time += Time.deltaTime*3;
             index = (int)time;
             if (index >= levelImgs.Count)
             {

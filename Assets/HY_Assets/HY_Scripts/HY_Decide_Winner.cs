@@ -25,7 +25,7 @@ public class HY_Decide_Winner : MonoBehaviour
             levelEndPanel.SetActive(true);
             winnerBGImg.SetActive(true);
             time += Time.deltaTime;
-            if (time > 10)
+            if (time > 5)
             {
                 SceneManager.LoadScene(0);
             }
@@ -36,7 +36,7 @@ public class HY_Decide_Winner : MonoBehaviour
             winLooseTxt.text = "DISQUALIFIED";
             levelEndPanel.SetActive(true);
             time += Time.deltaTime;
-            if (time >= 9)
+            if (time >= 3)
             {
                 SceneManager.LoadScene(0);
             }

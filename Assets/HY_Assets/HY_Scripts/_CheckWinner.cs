@@ -56,11 +56,9 @@ public class _CheckWinner : MonoBehaviour
             time += Time.deltaTime;
             if (time > 5)
             {
-                if (time > 10)
-                {
                     //Complete screen.
                     SceneManager.LoadScene(0);
-                }
+                
             }
         }
         else if(enemyWon)
@@ -68,13 +66,13 @@ public class _CheckWinner : MonoBehaviour
             winLooseTxt.text = "DISQUALIFIED";
             levelEndPanel.SetActive(true);
             time += Time.deltaTime;
-            if (time > 5)
+            if (time > 3)
             {
-                if (time >= 9)
-                {
+                
+                
                     // Complete screen.
                     SceneManager.LoadScene(0);
-                }
+                
             }
         }
     }

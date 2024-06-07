@@ -185,6 +185,7 @@ public class HY_Player_Control : MonoBehaviour
             StartCoroutine(SpawnWait());
             // transform.position = spawnPoint.position;
         }
+       
     }
 
 

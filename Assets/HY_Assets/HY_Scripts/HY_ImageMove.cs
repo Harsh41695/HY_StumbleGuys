@@ -16,7 +16,7 @@ public class HY_ImageMove : MonoBehaviour
         if (rectTransform.position.x <= -5)
         {
             rectTransform.position = new Vector3(x, rectTransform.position.y, rectTransform.position.z);
-            rectTransform.position = pos.transform.position;
+           // rectTransform.position = pos.transform.position;
 
         }
     }
