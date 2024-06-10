@@ -56,15 +56,16 @@ public class HY_Player_Control : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
-        CanAniamte();
-
+        HangingAnimation();
         if (canControl == true)
         {
             PlayerMovement();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 MobileJumpBtn();
+
             }
+            CanAniamte();
         }
 
 
@@ -149,14 +150,14 @@ public class HY_Player_Control : MonoBehaviour
     [System.Obsolete]
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Ground" || collision.transform.tag == "LeftMover" ||
+        if ( collision.transform.tag == "LeftMover" ||
             collision.transform.tag == "RightMover" ||
             collision.transform.tag == "Water")
         {
 
             animator.SetBool("Hanging", false);
 
-            isGrounded = true;
+           // isGrounded = true;
             jumpbtnPressed = false;
             inAir = false;
             moveSpeed = defaultSpeed;
@@ -188,9 +189,8 @@ public class HY_Player_Control : MonoBehaviour
             canControl = false;
             // transform.position = spawnPoint.position;
         }
-       
-    }
 
+    }
 
     IEnumerator SpawnWait()
     {
@@ -220,5 +220,27 @@ public class HY_Player_Control : MonoBehaviour
                 break;
         }
 
+        if (other.tag == "Ground")
+        {
+            isGrounded=true;
+            animator.SetBool("Hanging", false);
+
+            jumpbtnPressed = false;
+            inAir = false;
+            moveSpeed = defaultSpeed;
+            animator.SetBool("Dash", false);
+            isDashing = false;
+            Debug.Log("Collision enter");
+        }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Ground")
+        {
+            Debug.Log("Collision exit");
+            inAir = true;
+            isGrounded = false;
+        }
     }
 }
