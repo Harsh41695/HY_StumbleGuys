@@ -2,8 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class HY_TestRagdoll : MonoBehaviour
+public class HY_EnemyRagdoll : MonoBehaviour
 {
+   
     Rigidbody[] childRbs;
     Animator animator;
     private NavMeshAgent agent_Ref;
@@ -14,6 +15,7 @@ public class HY_TestRagdoll : MonoBehaviour
     public HY_NavMeshEnemy _refNavMesh;
     void Awake()
     {
+       
         _refNavMesh = GetComponentInParent<HY_NavMeshEnemy>();
         childRbs = GetComponentsInChildren<Rigidbody>();
         EnableKinamatic();
@@ -54,6 +56,18 @@ public class HY_TestRagdoll : MonoBehaviour
         }
 
 
+    }
+    //  Must Use Event here........
+    public void EnemyRagdoll()
+    {
+        // Debug.Log("Collided to the obstacle");
+        animator.enabled = false;
+        agent_Ref.speed = 0;
+        agent_Ref.ResetPath();
+        // followPath = false;
+        _refNavMesh.followPath = false;
+        DisableKinamatic();
+        StartCoroutine(ResetRagoll());
     }
     [System.Obsolete]
     private void OnCollisionEnter(Collision collision)

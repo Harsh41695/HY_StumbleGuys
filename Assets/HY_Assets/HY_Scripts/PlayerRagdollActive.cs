@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PlayerRagdollActive : MonoBehaviour
 {
-
+    public static PlayerRagdollActive instance;
     Rigidbody[] childRbs;
     Animator animator;
-  
+
     [SerializeField]
     Transform hip;
 
@@ -16,11 +14,15 @@ public class PlayerRagdollActive : MonoBehaviour
     //public HY_NavMeshEnemy _refNavMesh;
     void Awake()
     {
-       
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         childRbs = GetComponentsInChildren<Rigidbody>();
         EnableKinamatic();
         animator = GetComponentInParent<Animator>();
-       
+
     }
 
 
@@ -48,7 +50,7 @@ public class PlayerRagdollActive : MonoBehaviour
         Parent.transform.position = transform.position;
         animator.enabled = true;
 
-      
+
         foreach (var child in childRbs)
         {
             child.isKinematic = true;
@@ -57,15 +59,18 @@ public class PlayerRagdollActive : MonoBehaviour
 
 
     }
+    public void RagdollActivate()
+    {
+        animator.enabled = false;
+        DisableKinamatic();
+        StartCoroutine(ResetRagoll());
+    }
     [System.Obsolete]
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Obstacle")
+        if (collision.gameObject.tag == "Obstacle")
         {
-            // Debug.Log("Collided to the obstacle");
             animator.enabled = false;
-            // followPath = false;
-          
             DisableKinamatic();
             StartCoroutine(ResetRagoll());
 

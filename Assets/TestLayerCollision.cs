@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class TestLayerCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         Physics.IgnoreLayerCollision(3, 8, true);

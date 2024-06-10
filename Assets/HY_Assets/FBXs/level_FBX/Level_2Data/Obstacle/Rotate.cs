@@ -6,6 +6,7 @@ public class Rotate : MonoBehaviour
     public float rotSpeed = 20;
     float time;
     Rigidbody rb;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -15,12 +16,24 @@ public class Rotate : MonoBehaviour
     [System.Obsolete]
     void FixedUpdate()
     {
-
         TransformRotation();
     }
-    void TorqueRotation()
+
+    // Use Event instead of this.......
+    private void OnCollisionEnter(Collision collision)
     {
-        rb.AddTorque(Vector3.forward * rotSpeed * Time.deltaTime, ForceMode.Impulse);
+        if (collision.gameObject.tag == "Player")
+        {
+            PlayerRagdollActive.instance.RagdollActivate();
+            
+            Debug.Log(collision.gameObject.name);
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+           // HY_EnemyRagdoll.instance.EnemyRagdoll();
+            collision.gameObject.GetComponentInChildren<HY_EnemyRagdoll>().EnemyRagdoll();
+           
+        }
     }
     [System.Obsolete]
     void TransformRotation()

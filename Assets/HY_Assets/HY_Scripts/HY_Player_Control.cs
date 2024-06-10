@@ -183,6 +183,9 @@ public class HY_Player_Control : MonoBehaviour
             Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
             rb.isKinematic = true;
             StartCoroutine(SpawnWait());
+
+            // set control false.
+            canControl = false;
             // transform.position = spawnPoint.position;
         }
        
@@ -192,6 +195,7 @@ public class HY_Player_Control : MonoBehaviour
     IEnumerator SpawnWait()
     {
         yield return new WaitForSeconds(waitForSec);
+        canControl = true;
         transform.localScale = Vector3.Lerp(Vector3.zero, playerScale, 500f);
         rb.isKinematic = false;
         transform.position = spawnPoint.position;
