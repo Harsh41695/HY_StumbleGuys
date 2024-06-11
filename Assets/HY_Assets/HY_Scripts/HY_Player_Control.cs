@@ -34,10 +34,12 @@ public class HY_Player_Control : MonoBehaviour
     Vector3 playerScale;
     [SerializeField]
     float scale = 0.75f;
-    public bool canControl = true;
-
+    public static bool canControl;
+    float inAirTime;
+    RaycastHit hit;
     void Start()
     {
+        canControl = true;
         rb = GetComponent<Rigidbody>();
         isGrounded = false;
         animator = GetComponent<Animator>();
@@ -56,14 +58,18 @@ public class HY_Player_Control : MonoBehaviour
     [System.Obsolete]
     void Update()
     {
-        HangingAnimation();
+
+        PlayerOutOfBounds();
+        if (InAirTime() >= 0.15f)
+        {
+            HangingAnimation();
+        }
         if (canControl == true)
         {
             PlayerMovement();
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 MobileJumpBtn();
-
             }
             CanAniamte();
         }
@@ -72,10 +78,7 @@ public class HY_Player_Control : MonoBehaviour
     }
     void HangingAnimation()
     {
-        if (!isGrounded && inAir && !isDashing)
-        {
-            animator.SetBool("Hanging", true);
-        }
+        animator.SetBool("Hanging", true);
     }// hanging animation true..
     [System.Obsolete]
     public void PlayerMovement()
@@ -130,7 +133,7 @@ public class HY_Player_Control : MonoBehaviour
     public void CanAniamte()
     {
 
-        if (move.magnitude != 0 && isGrounded)
+        if (move.magnitude != 0)
         {
             animator.SetFloat("Run", move.magnitude);
         }
@@ -150,14 +153,14 @@ public class HY_Player_Control : MonoBehaviour
     [System.Obsolete]
     public void OnCollisionEnter(Collision collision)
     {
-        if ( collision.transform.tag == "LeftMover" ||
+        if (collision.transform.tag == "LeftMover" ||
             collision.transform.tag == "RightMover" ||
             collision.transform.tag == "Water")
         {
 
             animator.SetBool("Hanging", false);
 
-           // isGrounded = true;
+            // isGrounded = true;
             jumpbtnPressed = false;
             inAir = false;
             moveSpeed = defaultSpeed;
@@ -179,20 +182,39 @@ public class HY_Player_Control : MonoBehaviour
         }
         if (collision.transform.tag == "Water")
         {
-            // gameObject.SetActive(false
-            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 500f);
-            Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
-            rb.isKinematic = true;
-            StartCoroutine(SpawnWait());
 
-            // set control false.
-            canControl = false;
-            // transform.position = spawnPoint.position;
+            OnCollideWater();
         }
 
     }
+    [System.Obsolete]
+    void PlayerOutOfBounds()
+    {
+        if (transform.position.y <= -51)
+        {
+            // gameObject.SetActive(false
+            transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 500f);
+            //Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
+            rb.isKinematic = true;
+            StartCoroutine(SpawnWait());
+            // set control false.
+            canControl = false;
+        }
+    }
 
-    IEnumerator SpawnWait()
+    [System.Obsolete]
+    //This function is responsible for Transform collide with water.
+    private void OnCollideWater()
+    {
+        // gameObject.SetActive(false
+        transform.localScale = Vector3.Lerp(transform.localScale, Vector3.zero, 500f);
+        Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
+        rb.isKinematic = true;
+        StartCoroutine(SpawnWait());
+        // set control false.
+        canControl = false;
+    }
+    public IEnumerator SpawnWait()
     {
         yield return new WaitForSeconds(waitForSec);
         canControl = true;
@@ -220,9 +242,14 @@ public class HY_Player_Control : MonoBehaviour
                 break;
         }
 
+
+
+    }
+    private void OnTriggerStay(Collider other)
+    {
         if (other.tag == "Ground")
         {
-            isGrounded=true;
+            isGrounded = true;
             animator.SetBool("Hanging", false);
 
             jumpbtnPressed = false;
@@ -230,17 +257,33 @@ public class HY_Player_Control : MonoBehaviour
             moveSpeed = defaultSpeed;
             animator.SetBool("Dash", false);
             isDashing = false;
-            Debug.Log("Collision enter");
-        }
 
+            //in air-timer stop
+            //inAirTime = 0;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
         if (other.tag == "Ground")
         {
-            Debug.Log("Collision exit");
             inAir = true;
             isGrounded = false;
+                
+            //in air-timer go
+            //inAirTime += Time.deltaTime;
         }
+    }
+
+    float InAirTime()
+    {
+        if (!isGrounded && inAir && !isDashing)
+        {
+            inAirTime += Time.deltaTime;
+        }
+        else
+        {
+            inAirTime = 0;
+        }
+        return inAirTime;
     }
 }

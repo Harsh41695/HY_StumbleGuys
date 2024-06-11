@@ -61,7 +61,7 @@ public class HY_Decide_Winner : MonoBehaviour
                 }
                 isCalled = true;
             }
-            playerControl.canControl = false;
+            HY_Player_Control.canControl = false;
 
 
 
@@ -71,7 +71,7 @@ public class HY_Decide_Winner : MonoBehaviour
             //Player Loose //Active Loose Screen.
             isEnemyWin = true;
             playerControl.GetComponent<Animator>().SetTrigger("Defeat");
-            playerControl.canControl = false;
+            HY_Player_Control.canControl = false;
             // other.GetComponent<Animator>().SetTrigger("Victory");
             other.gameObject.GetComponent<HY_NavMeshEnemy>().touchedFinishLine = true;
             if (isCalled == false)

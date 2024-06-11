@@ -465,10 +465,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.11230004
-  m_Height: 0.44920015
+  m_Radius: 0.112302944
+  m_Height: 0.44921178
   m_Direction: 1
-  m_Center: {x: 0, y: 0.22460008, z: 0}
+  m_Center: {x: 0, y: 0.22460589, z: 0}
 --- !u!54 &9086340917935147571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -510,7 +510,7 @@ CharacterJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0.56008977, y: 0.3988645, z: -0.0056651263}
   serializedVersion: 2
-  m_SwingAxis: {x: -1, y: 0, z: 0}
+  m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
     spring: 0
     damper: 0
@@ -1725,6 +1725,7 @@ GameObject:
   - component: {fileID: 8554527208338914459}
   - component: {fileID: 6079256261082411493}
   - component: {fileID: 8994991294693874505}
+  - component: {fileID: 3406274674776526457}
   m_Layer: 3
   m_Name: CowPlayer_RagDoll
   m_TagString: Player
@@ -1854,7 +1855,27 @@ MonoBehaviour:
   dashDuration: 0.5
   dashSpeed: 10
   scale: 0.75
-  canControl: 1
+--- !u!135 &3406274674776526457
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4824952182153011385}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.39
+  m_Center: {x: 0, y: 0.14, z: 0}
 --- !u!1 &4925753247457300389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2365,10 +2386,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.12735675
-  m_Height: 0.6367837
+  m_Radius: 0.12485587
+  m_Height: 0.6242793
   m_Direction: 1
-  m_Center: {x: 0, y: 0.31839186, z: 0}
+  m_Center: {x: 0, y: 0.31213966, z: 0}
 --- !u!54 &2030969465771478446
 Rigidbody:
   m_ObjectHideFlags: 0

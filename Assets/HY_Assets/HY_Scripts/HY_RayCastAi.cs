@@ -29,45 +29,48 @@ public class HY_RayCastAi : MonoBehaviour
     //}
     private void Update()
     {
-
-        if (Physics.Raycast(m_transform.position, m_transform.forward, out hit, maxdis))
+        if (HY_StartPause.countOver)
         {
-            // if (!rotateOnce)
 
-            if (hit.collider.tag == "Wall")
-            {
-                Quaternion randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0);// * transform.forward;
-                transform.rotation = Quaternion.Slerp(transform.rotation, randomDirection, 100f);
-                // rb.MoveRotation(Quaternion.LookRotation(randomDirection));
-            }
 
-            Debug.DrawLine(m_transform.position, hit.point, Color.red);
-        }
-        else
-        {
-            Vector3 randomDirection = Quaternion.Euler(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0) * transform.forward;
-            animator.SetFloat("Run", randomDirection.magnitude);
-            rb.MovePosition(transform.position + randomDirection * moveSpeed * Time.deltaTime);
-            animator.SetBool("Jump", false);
-            animator.SetBool("Hanging", false);
-            time += Time.deltaTime;
-            if (time > 1f)
+            if (Physics.Raycast(m_transform.position, m_transform.forward, out hit, maxdis))
             {
-                if (!rotateOnce)
+                // if (!rotateOnce)
+
+                if (hit.collider.tag == "Wall")
                 {
-                    rotateOnce = true;
-                    rb.AddForce(Vector3.up * force, ForceMode.Impulse);
-                    animator.SetBool("Jump", true);
-                    animator.SetBool("Hanging", true);
-                    //rb.MoveRotation(Quaternion.LookRotation(RandoRoatation()));
+                    Quaternion randomDirection = Quaternion.Euler(0, Random.Range(0f, 360f), 0);// * transform.forward;
+                    transform.rotation = Quaternion.Slerp(transform.rotation, randomDirection, 100f);
+                    // rb.MoveRotation(Quaternion.LookRotation(randomDirection));
                 }
-                rotateOnce = false;
-                time = 0;
+
+                Debug.DrawLine(m_transform.position, hit.point, Color.red);
             }
+            else
+            {
+                Vector3 randomDirection = Quaternion.Euler(Random.Range(-15f, 15f), Random.Range(-15f, 15f), 0) * transform.forward;
+                animator.SetFloat("Run", randomDirection.magnitude);
+                rb.MovePosition(transform.position + randomDirection * moveSpeed * Time.deltaTime);
+                animator.SetBool("Jump", false);
+                animator.SetBool("Hanging", false);
+                time += Time.deltaTime;
+                if (time > 1f)
+                {
+                    if (!rotateOnce)
+                    {
+                        rotateOnce = true;
+                        rb.AddForce(Vector3.up * force, ForceMode.Impulse);
+                        animator.SetBool("Jump", true);
+                        animator.SetBool("Hanging", true);
+                        //rb.MoveRotation(Quaternion.LookRotation(RandoRoatation()));
+                    }
+                    rotateOnce = false;
+                    time = 0;
+                }
 
-            Debug.DrawLine(m_transform.position, m_transform.forward * maxdis, Color.green);
+                Debug.DrawLine(m_transform.position, m_transform.forward * maxdis, Color.green);
+            }
         }
-
 
     }
     Vector3 RandoRoatation()

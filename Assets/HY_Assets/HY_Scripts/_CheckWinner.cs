@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class _CheckWinner : MonoBehaviour
@@ -10,7 +10,7 @@ public class _CheckWinner : MonoBehaviour
     List<GameObject> enemyList = new List<GameObject>();
     bool canRunUpdate;
     [SerializeField]
-    GameObject levelEndPanel,winnerBGImg;
+    GameObject levelEndPanel, winnerBGImg;
     [SerializeField]
     TextMeshProUGUI winLooseTxt;
     float time;
@@ -21,7 +21,7 @@ public class _CheckWinner : MonoBehaviour
     {
         canRunUpdate = true;
         winnerBGImg.SetActive(false);
-        
+
     }
 
     // Update is called once per frame
@@ -35,12 +35,12 @@ public class _CheckWinner : MonoBehaviour
                 playerWon = true;
                 //can avtive Panel
                 ref_Player.GetComponent<Rigidbody>().isKinematic = true;
-                canRunUpdate =false;
+                canRunUpdate = false;
             }
             if (HY_DeathZone.enemyDeathCount < 0)
             {
                 enemyWon = true;
-              
+
             }
         }
         WhoWon();
@@ -56,23 +56,21 @@ public class _CheckWinner : MonoBehaviour
             time += Time.deltaTime;
             if (time > 5)
             {
-                    //Complete screen.
-                    SceneManager.LoadScene(0);
-                
+                //Complete screen.
+                SceneManager.LoadScene(0);
+
             }
         }
-        else if(enemyWon)
+        else if (enemyWon)
         {
-            winLooseTxt.text = "DISQUALIFIED";
+            winLooseTxt.text = "ELIMINATED";
             levelEndPanel.SetActive(true);
             time += Time.deltaTime;
             if (time > 3)
             {
-                
-                
-                    // Complete screen.
-                    SceneManager.LoadScene(0);
-                
+                // Complete screen.
+                SceneManager.LoadScene(0);
+
             }
         }
     }

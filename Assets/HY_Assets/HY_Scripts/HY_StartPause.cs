@@ -13,10 +13,10 @@ public class HY_StartPause : MonoBehaviour
     public static bool countOver;
     void Start()
     {
-        if (Enemies != null)
-        {
-            Enemies.SetActive(false);
-        }
+        //if (Enemies != null)
+        //{
+        //    Enemies.SetActive(false);
+        //}
         countOver = false;
         StartCoroutine(StartCount());
         

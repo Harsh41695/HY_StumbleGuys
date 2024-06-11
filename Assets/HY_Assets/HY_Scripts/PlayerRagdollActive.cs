@@ -11,6 +11,8 @@ public class PlayerRagdollActive : MonoBehaviour
     Transform hip;
 
     public GameObject Parent;
+    [SerializeField] GameObject effect;
+    Transform spawnPoint;
     //public HY_NavMeshEnemy _refNavMesh;
     void Awake()
     {
@@ -22,7 +24,7 @@ public class PlayerRagdollActive : MonoBehaviour
         childRbs = GetComponentsInChildren<Rigidbody>();
         EnableKinamatic();
         animator = GetComponentInParent<Animator>();
-
+        
     }
 
 
@@ -43,14 +45,12 @@ public class PlayerRagdollActive : MonoBehaviour
             child.constraints = RigidbodyConstraints.None;
         }
     }
-    IEnumerator ResetRagoll()
+    IEnumerator ResetRagoll(float wait)
     {
-        yield return new WaitForSeconds(3f);
-        // HY_NavMeshEnemy.goRagdoll = false;
+        yield return new WaitForSeconds(wait);
         Parent.transform.position = transform.position;
         animator.enabled = true;
-
-
+        HY_Player_Control.canControl = true;
         foreach (var child in childRbs)
         {
             child.isKinematic = true;
@@ -63,19 +63,31 @@ public class PlayerRagdollActive : MonoBehaviour
     {
         animator.enabled = false;
         DisableKinamatic();
-        StartCoroutine(ResetRagoll());
+        StartCoroutine(ResetRagoll(3f));
+        HY_Player_Control.canControl = false;
     }
     [System.Obsolete]
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Obstacle")
+        switch (collision.gameObject.tag)
         {
-            animator.enabled = false;
-            DisableKinamatic();
-            StartCoroutine(ResetRagoll());
+            case "Obstacle":
+                HY_Player_Control.canControl = false;
+                animator.enabled = false;
+                DisableKinamatic();
+                StartCoroutine(ResetRagoll(3f));
+                break;
+            case "Water":
+                Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
+                StartCoroutine(ResetRagoll(0.15f));
 
+                break;
         }
+        
+        
     }
+   
+
 }
 
 

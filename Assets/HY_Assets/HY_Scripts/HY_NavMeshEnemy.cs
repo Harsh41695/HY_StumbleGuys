@@ -36,43 +36,47 @@ public class HY_NavMeshEnemy : MonoBehaviour
 
     void Update()
     {
-        if (canMove == true)
+        if (HY_StartPause.countOver)
         {
-            time += Time.deltaTime;
-            if (time > changeSpeedFloat)
-            {
-                AISpeedChange();
-                time = 0;
-            }
-            //agent.speed = rndSpeed;
 
-            // setting Destination to the target.
-            if (followPath == true)
+            if (canMove == true)
             {
-                agent.SetDestination(target.position);
-            }
-            enmyAnim.SetFloat("Run", agent.velocity.sqrMagnitude);
+                time += Time.deltaTime;
+                if (time > changeSpeedFloat)
+                {
+                    AISpeedChange();
+                    time = 0;
+                }
+                //agent.speed = rndSpeed;
 
-            if (agent.isOnOffMeshLink)
-            {
-                agent.speed = onLinkSpeed;
-                enmyAnim.ResetTrigger("Dashing");
-                enmyAnim.SetBool("Dash", false);
-                enmyAnim.SetBool("Jump", true);
-                enmyAnim.SetBool("Hanging", true);
-            }
-            else
-            {
-                agent.speed = rndSpeed;
-                enmyAnim.SetBool("Jump", false);
-                enmyAnim.SetBool("Hanging", false);
-            }
-            if (Vector3.Distance(transform.position, target.position) <= agent.radius)
-            {
-                agent.ResetPath();
-            }
+                // setting Destination to the target.
+                if (followPath == true)
+                {
+                    agent.SetDestination(target.position);
+                }
+                enmyAnim.SetFloat("Run", agent.velocity.sqrMagnitude);
+
+                if (agent.isOnOffMeshLink)
+                {
+                    agent.speed = onLinkSpeed;
+                    enmyAnim.ResetTrigger("Dashing");
+                    enmyAnim.SetBool("Dash", false);
+                    enmyAnim.SetBool("Jump", true);
+                    enmyAnim.SetBool("Hanging", true);
+                }
+                else
+                {
+                    agent.speed = rndSpeed;
+                    enmyAnim.SetBool("Jump", false);
+                    enmyAnim.SetBool("Hanging", false);
+                }
+                if (Vector3.Distance(transform.position, target.position) <= agent.radius)
+                {
+                    agent.ResetPath();
+                }
 
 
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
