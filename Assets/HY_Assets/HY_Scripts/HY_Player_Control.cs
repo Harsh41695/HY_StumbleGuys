@@ -74,7 +74,6 @@ public class HY_Player_Control : MonoBehaviour
             CanAniamte();
         }
 
-
     }
     void HangingAnimation()
     {
@@ -268,7 +267,7 @@ public class HY_Player_Control : MonoBehaviour
         {
             inAir = true;
             isGrounded = false;
-                
+
             //in air-timer go
             //inAirTime += Time.deltaTime;
         }

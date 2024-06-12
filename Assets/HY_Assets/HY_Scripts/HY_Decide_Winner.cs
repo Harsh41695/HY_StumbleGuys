@@ -16,7 +16,13 @@ public class HY_Decide_Winner : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI winLooseTxt;
     bool isCalled = false;
-
+    private void Awake()
+    {
+        if(playerControl == null)
+        {
+            playerControl = FindObjectOfType<HY_Player_Control>();
+        }
+    }
     void Update()
     {
         if (isPlayerWin)

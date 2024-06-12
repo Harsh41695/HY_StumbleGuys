@@ -846,6 +846,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: cd2a476e0f516e7469e9dcbf2559ca4d, type: 3}
   - {fileID: 21300000, guid: bd5178ad9d8465546b6beb2d56a6a753, type: 3}
   - {fileID: 21300000, guid: 0ea43ef40811fe547a2465e3d2c1a970, type: 3}
+  - {fileID: 21300000, guid: 04ebbb665f7fc4f438c8bc454c5b5d6f, type: 3}
   index: 0
   mainImg: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
