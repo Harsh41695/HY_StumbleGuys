@@ -2833,6 +2833,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 642.4
       objectReference: {fileID: 0}
+    - target: {fileID: 2405673230556646249, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_text
+      value: Eating Mission
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405673230556646249, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 18.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405673230556646249, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 2405673230556646249, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2421537115110824974, guid: 6e57caabade17c648885770190461765,
         type: 3}
       propertyPath: m_Name
@@ -2987,6 +3007,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 194.15369
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180717668316999110, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_text
+      value: Con Cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180717668316999110, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180717668316999110, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_margin.z
+      value: 31.762268
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180717668316999110, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180717668316999110, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4700865846992574889, guid: 6e57caabade17c648885770190461765,
         type: 3}
@@ -3332,6 +3377,27 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IgnoreReversedGraphics
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8952027962887663307, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_text
+      value: '"Join Con Cow on a sncak-filled adventure through the whimsical wonders
+        of AdvenureLand!.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001020350284462370, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 238.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001020350284462370, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 75.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001020350284462370, guid: 6e57caabade17c648885770190461765,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.006
       objectReference: {fileID: 0}
     - target: {fileID: 9012507510890435828, guid: 6e57caabade17c648885770190461765,
         type: 3}

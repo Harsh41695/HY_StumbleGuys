@@ -72,7 +72,7 @@ public class HY_EnemyRagdoll : MonoBehaviour
     [System.Obsolete]
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag == "Obstacle")
+        if (collision.transform.tag == "Obstacle" && _refNavMesh!=null)
         {
            // Debug.Log("Collided to the obstacle");
             animator.enabled = false;
@@ -82,6 +82,12 @@ public class HY_EnemyRagdoll : MonoBehaviour
            _refNavMesh.followPath=false;
             DisableKinamatic();
             StartCoroutine(ResetRagoll());
+            if (_refNavMesh == null)
+            {
+                animator.enabled = false;
+                DisableKinamatic();
+                StartCoroutine(ResetRagoll());
+            }
 
         }
     }

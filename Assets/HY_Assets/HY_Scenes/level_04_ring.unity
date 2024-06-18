@@ -30545,9 +30545,42 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!1 &101700135 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5982572136122409835, guid: 032970822fe15bb4aad7f18cbc4d8a4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1157929773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &101700136 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3861725457133349613, guid: 032970822fe15bb4aad7f18cbc4d8a4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1157929773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &101700139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101700135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d6f900fe7676e41a7900c02e90f812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hip: {fileID: 101700136}
+  Parent: {fileID: 150878774}
+  effect: {fileID: 0}
 --- !u!4 &115236637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 509798972437619949, guid: 032970822fe15bb4aad7f18cbc4d8a4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1157929773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &150878774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4824952182153011385, guid: 032970822fe15bb4aad7f18cbc4d8a4d,
     type: 3}
   m_PrefabInstance: {fileID: 1157929773}
   m_PrefabAsset: {fileID: 0}
@@ -31488,10 +31521,15 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1760447741}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3246758611439567280, guid: 032970822fe15bb4aad7f18cbc4d8a4d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5982572136122409835, guid: 032970822fe15bb4aad7f18cbc4d8a4d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 101700139}
   m_SourcePrefab: {fileID: 100100000, guid: 032970822fe15bb4aad7f18cbc4d8a4d, type: 3}
 --- !u!1 &1160234425
 GameObject:
@@ -47501,6 +47539,7 @@ MonoBehaviour:
   faceTrans: {fileID: 5608480776328907740}
   maxDistace: 6
   force: 4
+  isGrounded: 0
 --- !u!4 &8541022635517670274
 Transform:
   m_ObjectHideFlags: 0

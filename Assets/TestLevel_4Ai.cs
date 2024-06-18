@@ -8,8 +8,9 @@ public class TestLevel_4Ai : MonoBehaviour
     Rigidbody rb;
     [SerializeField]
     float maxDistace, force = 10f;
-    bool isGrounded;
+    [SerializeField] private bool isGrounded;
     Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,15 +20,19 @@ public class TestLevel_4Ai : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        RayForward();
-        BackwardRayCast();
+        ForwardRay();
+        BackwardRay();
+        DownRay();
     }
-    void RayForward()
+    void ForwardRay()
     {
         RaycastHit hit;
         if (Physics.Raycast(faceTrans.position, faceTrans.forward, out hit, maxDistace))
         {
-            DoJump();
+            if (isGrounded)
+            {
+                DoJump();
+            }
             Debug.DrawLine(faceTrans.position, hit.point, Color.red);
         }
         else
@@ -35,22 +40,38 @@ public class TestLevel_4Ai : MonoBehaviour
             Debug.DrawLine(faceTrans.position, faceTrans.forward * maxDistace, Color.green);
         }
     }
-    private void BackwardRayCast()
+    private void BackwardRay()
     {
         RaycastHit hit;
         if (Physics.Raycast(faceTrans.position, -faceTrans.forward, out hit, maxDistace) && isGrounded)
         {
             //if (hit.collider.tag == "Wall")
             //{
-                DoJump();
-           // }
+            DoJump();
+            // }
             Debug.DrawLine(faceTrans.position, hit.point, Color.red);
         }
 
     }
+    void DownRay()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(faceTrans.position, Vector3.down, out hit, 2f))
+        {
+            if (hit.collider.tag == "Ground")
+            {
+                isGrounded = true;
+                Debug.DrawLine(faceTrans.position, hit.point, Color.cyan);
+            }
+            else
+            {
+                isGrounded = false;
+            }
+        }
+    }
     void DoJump()
     {
-        //isGrounded = false;
+        isGrounded = false;
         rb.AddForce(Vector3.up * force, ForceMode.Impulse);
         animator.SetBool("Jump", true);
         animator.SetBool("Hanging", true);
@@ -70,6 +91,7 @@ public class TestLevel_4Ai : MonoBehaviour
         {
             isGrounded = true;
             animator.SetBool("Jump", true);
+            animator.SetBool("Jump", false);
             animator.SetBool("Hanging", true);
         }
     }

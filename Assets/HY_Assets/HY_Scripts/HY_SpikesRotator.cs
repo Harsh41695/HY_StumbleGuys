@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rotate : MonoBehaviour
+public class HY_SpikesRotator : MonoBehaviour
 {
     // Start is called before the first frame update
     public float rotSpeed = 20;
@@ -24,7 +24,7 @@ public class Rotate : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerRagdollActive.instance.RagdollActivate();
+            HY_PlayerRagdollActive.instance.RagdollActivate();
             
             Debug.Log(collision.gameObject.name);
         }

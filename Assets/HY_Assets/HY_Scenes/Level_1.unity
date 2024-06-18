@@ -8728,7 +8728,7 @@ Transform:
   m_GameObject: {fileID: 4811001066465000552}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.259258, y: 39.464417, z: -2.0506592}
+  m_LocalPosition: {x: -26.259258, y: 39.5, z: -2.0506592}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8952,7 +8952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!33 &1812650180108892441
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -10021,21 +10021,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3861478300804232965, guid: 2b105f185a249674e8ea8049dd3971c8, type: 3}
---- !u!114 &3246758610834147847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5982572136593090780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a300da4505ab8c341b04d619a965ccaa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hip: {fileID: 3861725456402882906}
-  Parent: {fileID: 4824952182615304974}
-  effect: {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
 --- !u!1 &3249379027507048800
 GameObject:
   m_ObjectHideFlags: 0
@@ -12244,9 +12229,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3861725456402882906}
-  - component: {fileID: 3246758610834147847}
   - component: {fileID: 4828891296758446452}
   - component: {fileID: 8468599086057685238}
+  - component: {fileID: 8468599086057685239}
   m_Layer: 8
   m_Name: mixamorig:Hips
   m_TagString: Untagged
@@ -14128,6 +14113,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8468599086057685239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982572136593090780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d6f900fe7676e41a7900c02e90f812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hip: {fileID: 3861725456402882906}
+  Parent: {fileID: 4824952182615304974}
+  effect: {fileID: 1687118924408352, guid: 77c69ec12208c4c4380d15e30b6f8f68, type: 3}
 --- !u!144 &8505617320424528389
 CharacterJoint:
   m_ObjectHideFlags: 0

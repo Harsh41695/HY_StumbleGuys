@@ -1,9 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-public class PlayerRagdollActive : MonoBehaviour
+public class HY_PlayerRagdollActive : MonoBehaviour
 {
-    public static PlayerRagdollActive instance;
+    public static HY_PlayerRagdollActive instance;
     Rigidbody[] childRbs;
     Animator animator;
 
@@ -80,7 +80,6 @@ public class PlayerRagdollActive : MonoBehaviour
             case "Water":
                 Instantiate(effect, transform.position, Quaternion.EulerRotation(90, 0, 0));
                 StartCoroutine(ResetRagoll(0.15f));
-
                 break;
         }
         

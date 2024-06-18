@@ -21,7 +21,6 @@ public class _CheckWinner : MonoBehaviour
     {
         canRunUpdate = true;
         winnerBGImg.SetActive(false);
-
     }
 
     // Update is called once per frame
